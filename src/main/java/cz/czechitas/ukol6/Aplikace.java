@@ -14,7 +14,6 @@ public class Aplikace extends JFrame {
     private JSpinner kraliciField;
     private JTextField hlavyField;
     private JTextField nohyField;
-
     private JButton vypocitejButton;
 
 
@@ -39,7 +38,6 @@ public class Aplikace extends JFrame {
         setLayout(new MigLayout("wrap 2", "[right]rel[50:120:150,grow,fill]"));
         setMinimumSize(new Dimension(250, 200));
 
-
         SpinnerNumberModel model = new SpinnerNumberModel(1, 0, 10000000, 1);
 
         husyField = new JSpinner(model);
@@ -49,14 +47,12 @@ public class Aplikace extends JFrame {
         add(husyLabel);
         add(husyField);
 
-
         kraliciField = new JSpinner(model);
         JLabel kraliciLabel = new JLabel("Králíci");
         kraliciLabel.setDisplayedMnemonic('K');
         kraliciLabel.setLabelFor(kraliciField);
         add(kraliciLabel);
         add(kraliciField);
-
 
         add(createButtonBar(), "span");
 
@@ -68,7 +64,6 @@ public class Aplikace extends JFrame {
         add(hlavyLabel);
         add(hlavyField);
 
-
         nohyField = new JTextField();
         JLabel nohyLabel = new JLabel("Počet nohou");
         nohyLabel.setLabelFor(nohyField);
@@ -79,7 +74,6 @@ public class Aplikace extends JFrame {
         pack();
 
         vypocitejButton.addActionListener(this::handleVypocitej);
-
     }
 
     private JPanel createButtonBar() {
