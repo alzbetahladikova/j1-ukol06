@@ -10,11 +10,6 @@ import java.awt.event.ActionEvent;
 
 public class Aplikace extends JFrame {
 
-    private JLabel husyLabel;
-    private JLabel kraliciLabel;
-
-    private JLabel hlavyLabel;
-    private JLabel nohyLabel;
     private JSpinner husyField;
     private JSpinner kraliciField;
     private JTextField hlavyField;
@@ -45,16 +40,18 @@ public class Aplikace extends JFrame {
         setMinimumSize(new Dimension(250, 200));
 
 
-        husyField= new JSpinner();
-        husyLabel = new JLabel("Husy");
+        SpinnerNumberModel model = new SpinnerNumberModel(1, 0, 10000000, 1);
+
+        husyField = new JSpinner(model);
+        JLabel husyLabel = new JLabel("Husy");
         husyLabel.setDisplayedMnemonic('H');
         husyLabel.setLabelFor(husyField);
         add(husyLabel);
         add(husyField);
 
 
-        kraliciField= new JSpinner();
-        kraliciLabel = new JLabel("Králíci");
+        kraliciField = new JSpinner(model);
+        JLabel kraliciLabel = new JLabel("Králíci");
         kraliciLabel.setDisplayedMnemonic('K');
         kraliciLabel.setLabelFor(kraliciField);
         add(kraliciLabel);
@@ -63,9 +60,8 @@ public class Aplikace extends JFrame {
 
         add(createButtonBar(), "span");
 
-        hlavyField= new JTextField();
-        hlavyLabel = new JLabel("Počet hlav");
-        hlavyLabel.setDisplayedMnemonic('h');
+        hlavyField = new JTextField();
+        JLabel hlavyLabel = new JLabel("Počet hlav");
         hlavyLabel.setLabelFor(hlavyField);
         hlavyField.setHorizontalAlignment(JTextField.TRAILING);
         hlavyField.setEditable(false);
@@ -73,9 +69,8 @@ public class Aplikace extends JFrame {
         add(hlavyField);
 
 
-        nohyField= new JTextField();
-        nohyLabel = new JLabel("Počet nohou");
-        nohyLabel.setDisplayedMnemonic('N');
+        nohyField = new JTextField();
+        JLabel nohyLabel = new JLabel("Počet nohou");
         nohyLabel.setLabelFor(nohyField);
         nohyField.setHorizontalAlignment(JTextField.TRAILING);
         nohyField.setEditable(false);
@@ -86,6 +81,7 @@ public class Aplikace extends JFrame {
         vypocitejButton.addActionListener(this::handleVypocitej);
 
     }
+
     private JPanel createButtonBar() {
         vypocitejButton = new JButton("Vypočítej");
         vypocitejButton.setMnemonic('V');
@@ -99,18 +95,12 @@ public class Aplikace extends JFrame {
         int pocetHus = (int) husyField.getValue();
         int pocetKraliku = (int) kraliciField.getValue();
 
-        int pocetHlav;
-        pocetHlav=(pocetHus*1)+(pocetKraliku*1);
-
+        int pocetHlav = (pocetHus) + (pocetKraliku);
         String textHlavy = Integer.toString(pocetHlav);
         hlavyField.setText(textHlavy);
 
-        int pocetNohou;
-        pocetNohou =(pocetHus*2)+(pocetKraliku*4);
+        int pocetNohou = (pocetHus * 2) + (pocetKraliku * 4);
         String textNohy = Integer.toString(pocetNohou);
         nohyField.setText(textNohy);
-
-
-
     }
 }
