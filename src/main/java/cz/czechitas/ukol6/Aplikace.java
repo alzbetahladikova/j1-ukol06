@@ -9,6 +9,11 @@ import java.awt.*;
 
 public class Aplikace extends JFrame {
 
+    private JLabel husyLabel;
+    private JLabel kraliciLabel;
+    private JTextField husyField;
+    private JTextField kraliciField;
+
     public static void main(String[] args) {
         FlatLightLaf.setup();
         new Aplikace().start();
@@ -31,6 +36,24 @@ public class Aplikace extends JFrame {
         setMinimumSize(new Dimension(250, 200));
 
         //TODO implementovat formulář podle zadání
+
+        husyField= new JTextField();
+        husyLabel = new JLabel("Husy");
+        husyLabel.setDisplayedMnemonic('H');
+        husyLabel.setLabelFor(husyField);
+        add(husyLabel);
+        add(husyField);
+
+        kraliciField= new JTextField();
+        kraliciLabel = new JLabel("Králíci");
+        kraliciLabel.setDisplayedMnemonic('K');
+        kraliciLabel.setLabelFor(kraliciField);
+        add(kraliciLabel);
+        add(kraliciField);
+
+
+
+
 
         pack();
     }
