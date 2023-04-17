@@ -39,6 +39,7 @@ public class Aplikace extends JFrame {
         setMinimumSize(new Dimension(250, 200));
 
         SpinnerNumberModel model = new SpinnerNumberModel(1, 0, 10000000, 1);
+        SpinnerNumberModel model2 = new SpinnerNumberModel(1, 0, 10000000, 1);
 
         husyField = new JSpinner(model);
         JLabel husyLabel = new JLabel("Husy");
@@ -47,7 +48,7 @@ public class Aplikace extends JFrame {
         add(husyLabel);
         add(husyField);
 
-        kraliciField = new JSpinner(model);
+        kraliciField = new JSpinner(model2);
         JLabel kraliciLabel = new JLabel("Králíci");
         kraliciLabel.setDisplayedMnemonic('K');
         kraliciLabel.setLabelFor(kraliciField);
